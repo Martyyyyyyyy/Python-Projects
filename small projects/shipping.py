@@ -14,7 +14,6 @@ else:
 print("Ground Shipping $", cost_ground)
       
 # Ground Shipping Premimum 
-
 cost_ground_premium = 125.00
 
 print("Ground Shipping Premimium $", cost_ground_premium)
