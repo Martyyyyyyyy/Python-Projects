@@ -6,14 +6,14 @@ import sys
 master = Tk()
 master.title('Clock')
 
-def time():
-    timeVar = time.strftime('%H:%M:%S %p')
+def get_time():
+    timeVar = time.strftime('%I:%M:%S %p')
     clock.config(text = timeVar)
-    clock.after(200, time)
+    clock.after(200, get_time)
 
 clock = Label(master, font=('Calibri', 80), bg='black', fg='cyan')
 clock.pack(anchor='center')
-time()
+get_time()
 
 
 master.mainloop()
