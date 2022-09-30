@@ -1,32 +1,40 @@
 class Franchise:
-    def __init__(self, address, menus):
-        self.address = address
-        self.menus = menus
-        
-
+  def __init__(self, address, menus):
+    self.address = address
+    self.menus = menus
+  
+  def __repr__(self):
+    return self.address
+  
+  def availabel_menus(self, time):
+    available_menus = []
+    for menu in self.menus:
+      if time >= menu.start_time and time <= menu.end_time:
+        available_menus.append(menu)
+    return available_menus
 
 class Menu:
-    def __init__(self, name, item, start_time, end_time):
-        self.name = name
-        self.item = item
-        self.start_time = start_time
-        self.end_time = end_time
+  def __init__(self, name, item, start_time, end_time):
+    self.name = name
+    self.item = item
+    self.start_time = start_time
+    self.end_time = end_time
 
-    def __repr__(self) -> str:
-        return self.name + ' menu available from ' + str(self.start_time) + ' - ' + str(self.end_time) 
+  def __repr__(self):
+    return self.name + ' menu available from ' + str(self.start_time) + ' - ' + str(self.end_time) 
 
-    def calculate_bill(self, purchased_items):
-        bill = 0
-        for purchased_item in purchased_items:
-            if purchased_item in self.items:
-                bill += self.items[purchased_item]
-        return bill 
+  def calculate_bill(self, purchased_items):
+    bill = 0
+    for purchased_item in purchased_items:
+      if purchased_item in self.item:
+        bill += self.item[purchased_item]
+    return bill 
 
 
 brunch = {
-    'pancakes': 7.50, 'waffles': 9.00, 'burger': 11.00, 
-    'home fries': 4.50, 'coffee': 1.50, 'espresso': 3.00, 
-    'tea': 1.00, 'mimosa': 10.50, 'orange juice': 3.50
+  'pancakes': 7.50, 'waffles': 9.00, 'burger': 11.00, 
+  'home fries': 4.50, 'coffee': 1.50, 'espresso': 3.00, 
+  'tea': 1.00, 'mimosa': 10.50, 'orange juice': 3.50
 }
 
 brunch_menu = Menu('Brunch', brunch, 1100, 1600)
@@ -57,3 +65,5 @@ menus = [brunch, early_bird, dinner, kids]
 
 flagship_store = Franchise('1232 West End Road', menus)
 new_installment = Franchise('12 East Mulberry Street', menus)
+
+flagship_store.availabel_menus(1200)
