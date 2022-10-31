@@ -1,18 +1,5 @@
 import operator
-import random
-
-"""
-m = int(input('Введіть кількість рядків матриці = '))
-n = int(input('Введіть кількість стовпців матриці = '))
-
-A = [ [random.randint(-10, 11) for j in range(n)] for i in range(m) ]
-
-print('-------------------------')
-print("Матриця:")
-for i in range(m):
-    print(A[i])
-"""
-
+#==============================================================================
 def get_rel_matr(A, R):
     lis = sorted( list(A) )
     matr = []
@@ -56,16 +43,7 @@ def get_rel_prop(matr):
         s = s[:-1] + '.'
     return s
 #==============================================================================
-m = int(input('Введіть кількість рядків матриці = '))
-n = int(input('Введіть кількість стовпців матриці = '))
-
-A = [ [random.randint(-10, 11) for j in range(n)] for i in range(m) ]
-
-print('-------------------------')
-print("Матриця:")
-for i in range(m):
-    print(A[i])
-
-matrix = get_rel_matr( A, operator.le )
-print(matrix)
-print( get_rel_prop(matrix) )
+A={3,3,3,3}
+m = get_rel_matr( A, operator.le )
+print(m)
+print( get_rel_prop(m) )
