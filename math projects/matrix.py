@@ -1,4 +1,7 @@
 import operator
+import random
+m = int(input('Введіть к-сть рядків = '))
+n = int(input('Введіть к-сть стовпців = '))
 #==============================================================================
 def get_rel_matr(A, R):
     lis = sorted( list(A) )
@@ -34,16 +37,22 @@ def is_transitive(matr):
     return True
 #==============================================================================
 def get_rel_prop(matr):
-    res = ['Отношение обладает следующими свойствами:']
-    res.append( ' рефлексивность,'    if is_refl(matr)          else '' )
-    res.append(' антисимметричность,' if is_antisymm(matr)      else '' )
-    res.append(' транзитивность,'     if is_transitive(matr)    else '' )
+    res = ['Матриця має такі властивості:']
+    res.append(' рефлексивність,'    if is_refl(matr)          else '' )
+    res.append(' антисимметричність,' if is_antisymm(matr)      else '' )
+    res.append(' транзитивність,'     if is_transitive(matr)    else '' )
     s = ''.join( res )
     if s[-1] == ',':
         s = s[:-1] + '.'
     return s
+   
 #==============================================================================
+Matrix = [ [ random.randint(1, 11) for j in range(n)] for i in range(m) ]
+print('Matrix:')
+for i in range(m):
+    print(Matrix[i])
 A={3,3,3,3}
 m = get_rel_matr( A, operator.le )
 print(m)
 print( get_rel_prop(m) )
+print('Матриця є частковим порядком')
