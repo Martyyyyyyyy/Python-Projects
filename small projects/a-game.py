@@ -1,6 +1,7 @@
 import turtle
 import random
- 
+
+#starting a game
 w = 500
 h = 500
 food_size = 10
